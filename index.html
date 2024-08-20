@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieZone</title>
+   
+    <!-- Fontawsome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--  Bootstrap link offline method -->
+    <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
+    
+    <!-- Bootstrap link cdn method -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    
+    <style>
+        .outline-dark:focus {
+            border-color: #343a40; 
+            box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25); 
+        }
+
+        .carousel-container {
+            /* max-width: 100px;  */
+            margin: 0; 
+        }
+        .carousel-item img {
+            /* max-width: 100%;  */
+            width: 100%; 
+            height: 500px;
+            margin: auto; 
+        }
+
+        .card {
+            height: 100%;
+            transition: all 0.3s ease;  /*Smooth transition for hover effects */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+             transform: scale(1.05); /* up the card */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+        }
+
+        .btn:hover{
+            background-color: yellow;
+            color: black;
+            outline: none;
+        }
+
+        .badge:hover{
+            background-color: black;
+
+        }
+    </style>
+</head>
+<body class="text-bg-warning">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-warning py-0  ">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html"><h2>Movie Zone <i class="fa-solid fa-ticket mx-2"></i></h2></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto mb-2 mb-lg-0 h4 d-flex navbar navbar-md-align-items-md-center">
+                        <li class="nav-item mx-5">
+                            <a class="nav-link active" aria-current="page" href="#action_movies">Action</a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <a class="nav-link active" aria-current="page" href="#comedy_movies">Comedy</a>
+                        </li>
+                        <li class="nav-item mx-5">
+                            <a class="nav-link active" aria-current="page" href="#love_movies">Love</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 outline-dark" id="movie" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark" type="submit" onclick="searchMovie()">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main content -->
+        <div id="carouselExampleCaptions" class="carousel slide  " >
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner  ">
+            <div class="carousel-item active  " >
+              <img src="./assets/movie image/imaikanodigal.jpg " class="d-block  " alt="..." >
+              <div class="carousel-caption d-none d-md-block text-dark">
+                <h4 class=" "></h4>
+                <h1 class=" "></h1>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/movie image/kaalakkoothu.jpg " class="d-block " alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p></p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/movie image/artham.jfif" class="d-block " alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+           
+        <!--Action card -->
+        <div class="">
+         <h2 class="display-4 fw-semibold ms-5 mt-2 ">Action</h2> 
+        </div>
+
+        
+        <div class="container" id="action_movies">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100" id="Master">
+                        <img src="./assets/movie image/master.jpg" alt="Master"  class="card-img-top">
+                        <div class="card-body" id="Master">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Master</span></h3>
+                            <p class="card-text">An alcoholic professor is enrolled to teach at a juvenile facility, unbeknownst to him. He soon clashes with a ruthless gangster, who uses the children as scapegoats for his crimes.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100" id="Kaala">
+                        <img src="./assets/movie image/kaala.jfif" alt="Kaala"  class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Kaala</span></h3>
+                            <p class="card-text">Karikaalan consistently fights to keep the people of Dharavi, a slum in Mumbai, safe from the clutches of mighty politicians and the land mafia don, Hari Dhadha.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100" id="Vishwaroopam">
+                        <img src="./assets/movie image/vishwaroopam.jfif" alt="Vishwaroopam"class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Vishwaroopam</span></h3>
+                            <p class="card-text">Nirupama, an ambitious woman studying in the USA, marries a dance master, Viswanathan. On being suspicious of his behaviour, she hires a detective, who reveals his true identity and past.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" id="Valimai">
+                    <div class="card h-100">
+                        <img src="./assets/movie image/valimai.jfif" alt="Valimai" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Valimai</span></h3>
+                            <p class="card-text">A city witnesses a spike in its crime rate due to the nefarious activities of a notorious motorcycle club. When things get out of hand, it is up to Arjun, a police officer, to restore law and order.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100" id="Ayan">
+                        <img src="./assets/movie image/ayan.jpg" alt="Ayan" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Ayan</span></h3>
+                            <p class="card-text">Deva works for Arumugam, a smuggler, who has taken care of him for many years. However, when his best friend gets killed, Deva decides to help the police nab a dangerous drug lord.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100" id="PathuThala">
+                        <img src="./assets/movie image/pathu thala.jfif" alt="PathuThala" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">pathu thala</span></h3>
+                            <p class="card-text">An undercover police officer goes on a mission to capture a crime boss and rescue a politician. However, what he learns begins to change his perspective on good and evil.</p>
+                            <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100" id="Pudhupettai">
+                      <img src="./assets/movie image/pudhupettai.jfif" alt="Pudhupettai" class="card-img-top">
+                      <div class="card-body">
+                          <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Pudhupettai</span></h3>
+                          <p class="card-text">After his mother's death, a young boy runs away and is later recruited by a gangster. After becoming the right-hand man of his employer, he makes serious enemies and everyone starts targeting him.</p>
+                          <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100" id="ThaniOruvan">
+                    <img src="./assets/movie image/thani oruvan.jfif" alt="ThaniOruvan" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Thani Oruvan</span></h3>
+                        <p class="card-text">A wealthy and powerful scientist commits many medical malpractices for money. Hence, a dutiful police officer sets out to expose him and bring him to justice.</p>
+                        <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100" id="Captain">
+                  <img src="./assets/movie image/captain.jfif" alt="Captain" class="card-img-top">
+                  <div class="card-body">
+                      <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Captain</span></h3>
+                      <p class="card-text">A group of soldiers head out on a dangerous mission into a forest to uncover a mystery. However, they soon discover that they are in over their heads.</p>
+                      <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                  </div>
+              </div>
+          </div>
+              
+            </div>
+        </div>
+
+           <!--Comedy card -->
+           <div class="">
+            <h2 class="display-4 fw-semibold ms-5 mt-2 ">Comedy</h2> 
+           </div>
+   
+           
+           <div class="container" id="comedy_movies">
+               <div class="row">
+                   <div class="col-md-4 mb-4" id="Friends">
+                       <div class="card h-100">
+                           <img src="./assets/movie image/friends.jfif" alt="Friends" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Friends</span></h3>
+                               <p class="card-text">Three friends, who are extremely close, face many complications after several people plot to break them apart due to various reasons by spreading lies and creating misunderstandings amongst them.</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-4 mb-4">
+                       <div class="card h-100" id="Mannan">
+                           <img src="./assets/movie image/mannan.jfif" alt="Mannan" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Mannan</span></h3>
+                               <p class="card-text">Krishnan's boss Shanti is an autocratic, domineering woman who he constantly defies. Irked and revengeful, she manipulates his paralysed mother and marries him in a bid to control him.</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-4 mb-4">
+                       <div class="card h-100" id="Panchathandhiram">
+                           <img src="./assets/movie image/panchathandhiram.jfif" alt="Panchathandhiram" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Panchathandhiram</span></h3>
+                               <p class="card-text">Ram's friends hire Maggie, a call girl, to help him get over his wife, who mistakenly believes him to be a philanderer. However, they get in trouble when Maggie ends up dead.</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-4 mb-4">
+                       <div class="card h-100" id="Gemini">
+                           <img src="./assets/movie image/gemini.jpg" alt="Gemini" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Gemini</span></h3>
+                               <p class="card-text">Gemini, a gangster, falls for Manisha, who reciprocates his love without knowing his truth. After getting arrested and completing his term, he tries to convince his lover that he is a changed man.</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-4 mb-4">
+                       <div class="card h-100" id="Perazhagan">
+                           <img src="./assets/movie image/perazhagan.jpg" alt="Perazhagan" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Perazhagan</span></h3>
+                               <p class="card-text">Chinna, a phone booth operator, falls for a woman who is blind and wants to help her regain her eyesight. On the other hand, Kartik, his lookalike, is in love with the police commissioner's daughter..</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-4 mb-4">
+                       <div class="card h-100" id="PodaPodi">
+                           <img src="./assets/movie image/poda podi.jfif" alt="PodaPodi" class="card-img-top">
+                           <div class="card-body">
+                               <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Poda Podi</span></h3>
+                               <p class="card-text">Arjun and Nisha happily marry as they are madly in love with each other. However, trouble brews in their lives when they realize that they have to make a lot of sacrifices to make their marriage work.</p>
+                               <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="ThiruvilayaadalArambam">
+                         <img src="./assets/movie image/thiruvilayaadal arambam.jfif" alt="ThiruvilayaadalArambam" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Thiruvilayaadal Arambam</span></h3>
+                             <p class="card-text"> Guru hatches several plans to separate Priya and her lover Thirukumaran. However, Thirukumaran successfully manages to escape from Guru's evil plans and traps him in another problem.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                   <div class="card h-100" id="Comali">
+                       <img src="./assets/movie image/comali.jpg" alt="Comali" class="card-img-top">
+                       <div class="card-body">
+                           <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Comali</span></h3>
+                           <p class="card-text">Ravi awakens from a prolonged coma to learn that he is in his 30s and has missed 16 years of his life. Soon, he struggles to cope with the modern world and its innovations.</p>
+                           <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                 <div class="card h-100" id="BossEngiraBaskaran">
+                     <img src="./assets/movie image/boss engira baskaran.jfif" alt="BossEngiraBaskaran" class="card-img-top">
+                     <div class="card-body">
+                         <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Boss Engira Baskaran</span></h3>
+                         <p class="card-text">Bhaskaran is in love with a young and beautiful professor, Chandrika. In order to catch her attention, he along with his friend, Nallathambi, starts a coaching class to teach students.</p>
+                         <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                     </div>
+                 </div>
+             </div>
+                 
+               </div>
+           </div>
+
+              <!--Love card -->
+        <div class="">
+          <h2 class="display-4 fw-semibold ms-5 mt-2 ">Love</h2> 
+         </div>
+ 
+         
+         <div class="container" id="love_movies">
+             <div class="row">
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="KaadhalukuMariyadhai">
+                         <img src="./assets/movie image/kaadhaluku mariyadhai.jfif" alt="KaadhalukuMariyadhai" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Kaadhaluku Mariyadhai</span></h3>
+                             <p class="card-text">Jeeva loves Mini but her three brothers end up beating him every time he meets her. The couple decides to elope against their parents' wishes.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="7GRainbowColony">
+                         <img src="./assets/movie image/7g rainbow.jfif" alt="7GRainbowColony" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">7g Rainbow Colony</span></h3>
+                             <p class="card-text">When a new girl, Anita, moves into his neighbourhood, Ravi, an underachiever, falls in love with her. Though he does everything in his power to woo her, he ends up making a fool of himself.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="96">
+                         <img src="./assets/movie image/96.jfif" alt="96" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">96</span></h3>
+                             <p class="card-text">A rush of nostalgia engulfs a travel photographer after he visits his school. However, destiny reunites him with his childhood sweetheart at a school reunion with his friends.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="MounaRagam">
+                         <img src="./assets/movie image/mouna ragam.jfif" alt="MounaRagam" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Mouna Ragam</span></h3>
+                             <p class="card-text">An unpretentious Divya, studying in college, is pressurised by her father to marry Chandrakumar. In grief after her ex-lover, Manohar, is killed, she tries to bite the bullet and get on with life.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="Roja">
+                         <img src="./assets/movie image/roja.jfif" alt="Roja" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Roja</span></h3>
+                             <p class="card-text">Roja, a simple girl from a village in Tamil Nadu, makes desperate efforts to find her husband, Rishi, after he is kidnapped by militants during a secret undercover mission in Jammu and Kashmir.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                     <div class="card h-100" id="VinnaiThandiVaruvaaya">
+                         <img src="./assets/movie image/vtv.jfif" alt="VinnaiThandiVaruvaaya" class="card-img-top">
+                         <div class="card-body">
+                             <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Vinnai Thandi Varuvaaya</span></h3>
+                             <p class="card-text">A Hindu assistant director, Karthik, falls in love with Jessie, a Christian from a traditional family. Things change when Karthik becomes busy during a forty-day shoot in Goa.</p>
+                             <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4 mb-4">
+                   <div class="card h-100" id="Lover">
+                       <img src="./assets/movie image/lover.jfif" alt="Lover" class="card-img-top">
+                       <div class="card-body">
+                           <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Lover</span></h3>
+                           <p class="card-text">Arun and Divya's six-year relationship starts unravelling as they drift apart, raising the question of whether love can withstand such differences.</p>
+                           <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                 <div class="card h-100" id="OkKanmani">
+                     <img src="./assets/movie image/ok kanmani.jfif" alt="OkKanmani" class="card-img-top">
+                     <div class="card-body">
+                         <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Oh Kadhal Kanmani</span></h3>
+                         <p class="card-text">Two youngsters Adi and Tara are attracted to each other when they meet at a wedding. Since they do not believe in marriage, they decide to live together. What follows forms the crux of the story.</p>
+                         <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-4 mb-4">
+               <div class="card h-100" id="Alaipayudhae">
+                   <img src="./assets/movie image/alaipayudhae.jfif" alt="Alaipayudhae" class="card-img-top">
+                   <div class="card-body">
+                       <h3 class="card-title fw-lighter"><span class="badge text-bg-secondary">Alaipayudhae</span></h3>
+                       <p class="card-text">Karthik and Shakti marry against the wishes of their families and start their new life. However, they soon realise that marriage is not the bed of roses they had imagined it would be.</p>
+                       <a href="https://www.imdb.com/title/tt10579952/" target="_blank" class="btn btn-primary fw-semibold" style="width: 100%;"><i class="fa-solid fa-circle-play pe-2"></i>WATCH NOW</a>
+                   </div>
+               </div>
+           </div>
+               
+             </div>
+         </div>
+        
+    </main>
+
+    <footer class="footer text-bg-dark d-flex justify-content-center"  >
+        <p data-aos="" class="">Copyright &copy;2024 -<a href="./index.html " class="text-decoration-none"> <span class="text-warning ">Movie Zone</span> </a> . All Rights reserved. </p>
+       </footer>
+
+    <!-- Bootstrap JS link offline method -->
+     <!-- <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script> -->
+    
+    <script src="./index.js"></script>
+
+    <!-- Bootstrap link cdn method -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
